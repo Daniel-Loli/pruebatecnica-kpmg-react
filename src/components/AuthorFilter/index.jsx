@@ -1,6 +1,4 @@
-
-import  { useState } from 'react';
-import '../../App.css'
+import { useState } from 'react';
 
 const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,22 +11,43 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
     setSearchTerm(event.target.value);
   };
 
-
   const filteredAuthors = authors.filter(author =>
     author.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const handleClickClear = () => {
+    setSearchTerm('');
+  }
+
 
   return (
     <aside className="bg-gray-200 p-8 ml-4 rounded-md flex flex-col items-center">
-
+      <div className="relative mb-4">
         <input
           type="text"
           placeholder="Filtrar por Autor"
           value={searchTerm}
           onChange={handleSearchChange}
-          className="border border-gray-500 mb-4 font-medium rounded-3xl p-2 py-2 focus:outline-none focus:border-blue-500"
+          className="border border-gray-500 font-ligth text-black/70 rounded-3xl p-2 py-2  focus:outline-none focus:border-blue-500"
         />
-        <div className='grid grid-cols-2 justify-beetween w-full'>
+        <span className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            onClick={handleClickClear}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </span>
+      </div>
+      <div className='grid grid-cols-2 justify-beetween w-full'>
         {filteredAuthors.map((author, index) => (
           <label key={index} className="flex items-center mb-1">
             <input
