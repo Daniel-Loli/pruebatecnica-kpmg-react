@@ -63,12 +63,12 @@ const Home = () => {
   return (
     <Layout>
       <Header />
-      <h1 className='mb-10 font-bold text-2xl text-amber-700'>El Bitcoin en el mundo</h1>
-      <main className='grid grid-cols-4'>
-        <div className='col-span-1 bg-white' >
+      <h1 className='mb-10 font-bold text-2xl text-amber-700 font-serif'>El Bitcoin en el mundo</h1>
+      <main className='grid grid-cols-7'>
+        <div className='col-span-2 bg-white' >
           <AuthorFilter authors={authors} selectedAuthors={selectedAuthors} onAuthorChange={handleAuthorChange} />
         </div>
-        <div className='col-span-3 bg-grayLight'>
+        <div className='col-span-5 bg-grayLight'>
           <div className='flex flex-col gap-10 justify-center items-center'>
             <Search searchTerm={searchTerm} onSearchChange={handleSearchChange} />
             {filteredNews.map((item, index) => (

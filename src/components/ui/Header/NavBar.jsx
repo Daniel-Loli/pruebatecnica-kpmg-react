@@ -4,7 +4,7 @@ import Logo from '/Logo.png'
 const NavBar = () => {
     const activeStyle = 'underline underline-offset-4';
     return (
-        <nav className="flex justify-between items-center fixed z-10 w-full top-0  bg-slate-700 text-white">
+        <nav className="flex justify-between items-center  w-full top-0 font-serif bg-slate-700 text-white">
             <NavLink to="/" className="flex  items-center ">
                 <img src={Logo} alt="logo" className="w-1/4 " />
                 <p >GlobalNews</p>

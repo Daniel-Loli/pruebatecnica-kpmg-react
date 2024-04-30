@@ -20,7 +20,7 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
 
 
   return (
-    <aside className="bg-gray-200 p-8 ml-4 rounded-md flex flex-col items-center">
+    <aside className="bg-gray-300 p-8 ml-4 rounded-md flex flex-col items-center container ">
       <div className="relative mb-4">
         <input
           type="text"
@@ -47,14 +47,14 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
           </svg>
         </span>
       </div>
-      <div className='grid grid-cols-2 justify-beetween w-full'>
+      <div className='grid grid-cols-2  w-full font-sans gap-x-16'>
         {filteredAuthors.map((author, index) => (
           <label key={index} className="flex items-center mb-1">
             <input
               type="checkbox"
               checked={selectedAuthors.includes(author)}
               onChange={() => handleCheckboxChange(author)}
-              className="mr-2 text-blue-500 focus:ring-blue-500 flex items-center"
+              className="mr-2 text-blue-500 focus:ring-blue-500 flex items-center cursor-pointer "
             />
             <span className="text-blue">{author.split("@",1).join(" ").split(" ",1)}</span>
           </label>

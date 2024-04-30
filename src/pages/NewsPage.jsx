@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from '../components/CardList/Card';
 import Header from '../components/ui/Header';
+import Footer from   '../components/ui/Footer';
 import Layout from '../components/Layout';
 import Search from '../components/CardList/Search';
 import AuthorFilter from '../components/AuthorFilter';
@@ -61,6 +62,7 @@ const NewsPage = () => {
   return (
     <Layout>
       <Header />
+      <h1 className='mb-10 font-bold text-2xl text-amber-700 font-serif'>Lo que esta pasando en el mundo</h1>
       <main className='grid grid-cols-4'>
         <div className='col-span-1'>
           <AuthorFilter authors={authors} selectedAuthors={selectedAuthors} onAuthorChange={handleAuthorChange} />
@@ -74,6 +76,7 @@ const NewsPage = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </Layout>
   );
 };
