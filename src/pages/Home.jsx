@@ -11,7 +11,7 @@ import '../App.css';
 const Home = () => {
   const { news, loading, error } = useBitcoinNews();
   const isMobileView = useMobileView();
-  const [showAuthorFilter, setShowAuthorFilter] = useState(true);
+  const [showAuthorFilter, setShowAuthorFilter] = useState(false); 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedAuthors, setSelectedAuthors] = useState([]);
 
@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <Layout>
       <Header />
-      <h1 className='mb-10 font-bold text-2xl text-amber-700 font-serif'>El Bitcoin en el mundo</h1>
+      <h1 className='mb-10 font-bold text-2xl text-amber-700 font-serif text-center'>El Bitcoin en el mundo</h1>
       <main className='grid grid-cols-1 lg:grid-cols-7 gap-8'>
         <div className='lg:col-span-2 bg-white'>
           {(showAuthorFilter || !isMobileView) && (

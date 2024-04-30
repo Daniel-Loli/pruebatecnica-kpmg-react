@@ -1,16 +1,19 @@
 import { NavLink } from "react-router-dom";
-import Logo from '/Logo.png'
+import Logo from '/Logo.png';
 
 const NavBar = () => {
     const activeStyle = 'underline underline-offset-4';
-    return (
-        <nav className="flex justify-between items-center  w-full top-0 font-serif bg-slate-700 text-white">
-            <NavLink to="/" className="flex  items-center ">
-                <img src={Logo} alt="logo" className="w-1/4 " />
-                <p >GlobalNews</p>
-            </NavLink>
 
-            <ul className="flex justify-evenly items-center w-1/2">
+    return (
+        <nav className="flex flex-col items-center md:flex-row md:justify-between w-full font-serif bg-slate-700 text-white pl-8">
+            <div className="flex justify-center items-center w-full md:w-auto">
+                <NavLink to="/" className="flex items-center">
+                    <img src={Logo} alt="logo" className="w-1/4" />
+                    <p className="ml-2">GlobalNews</p>
+                </NavLink>
+            </div>
+
+            <ul className="flex flex-col md:flex-row md:justify-around gap-x-10 items-center w-full md:w-auto pr-8">
                 <li>
                     <NavLink to="/" className={({ isActive }) => isActive ? activeStyle : 'undefined'}>
                         Home

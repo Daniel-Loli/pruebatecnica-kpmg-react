@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,11 +20,11 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
 
   const handleClickClear = () => {
     setSearchTerm('');
-  }
+  };
 
   return (
-    <aside className="bg-gray-300 p-8 ml-4 rounded-md flex flex-col items-center container ">
-      <div className="relative mb-4">
+    <aside className="bg-gray-300 p-8 md:ml-4 rounded-md flex flex-col items-center container ">
+      <div className="relative mb-4 ">
         <input
           type="text"
           placeholder="Filtrar por autor"
@@ -64,6 +65,12 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
       </div>
     </aside>
   );
+};
+
+AuthorFilter.propTypes = {
+  authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedAuthors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onAuthorChange: PropTypes.func.isRequired,
 };
 
 export default AuthorFilter;

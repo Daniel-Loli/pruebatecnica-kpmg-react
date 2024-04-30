@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Search = ({ searchTerm, onSearchChange }) => {
   const handleChange = (event) => {
     onSearchChange(event.target.value);
@@ -34,6 +36,11 @@ const Search = ({ searchTerm, onSearchChange }) => {
       </span>
     </div>
   );
+};
+
+Search.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  onSearchChange: PropTypes.func.isRequired,
 };
 
 export default Search;
