@@ -5,7 +5,7 @@ const useNewsData = () => {
   const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
-    const apiKey = '0182acb9bf8749fa9d9d9468cdf8c896';
+    const apiKey =  import.meta.env.VITE_API_KEY;
     fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
       .then((res) => {
         if (!res.ok) {

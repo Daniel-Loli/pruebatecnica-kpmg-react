@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 
+
+
 const useBitcoinNews = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const apiKey = '0182acb9bf8749fa9d9d9468cdf8c896';
+    const apiKey =  import.meta.env.VITE_API_KEY;
     fetch(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apiKey}`)
       .then((res) => {
         if (!res.ok) {
