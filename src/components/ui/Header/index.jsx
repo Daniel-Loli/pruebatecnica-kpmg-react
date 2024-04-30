@@ -2,7 +2,7 @@ import NavBar from "./NavBar"
 
 const Header = () => {
   return (
-    <header className="w-full bg-grayLight" >
+    <header className="w-full " >
         <NavBar />
     </header>
   )

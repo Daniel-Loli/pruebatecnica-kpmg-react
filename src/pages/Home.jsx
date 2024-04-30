@@ -63,6 +63,7 @@ const Home = () => {
   return (
     <Layout>
       <Header />
+      <h1 className='mb-10 font-bold text-2xl text-amber-700'>El Bitcoin en el mundo</h1>
       <main className='grid grid-cols-4'>
         <div className='col-span-1 bg-white' >
           <AuthorFilter authors={authors} selectedAuthors={selectedAuthors} onAuthorChange={handleAuthorChange} />
