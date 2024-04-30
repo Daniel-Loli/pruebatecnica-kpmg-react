@@ -40,9 +40,11 @@ const NewsPage = () => {
         return selectedAuthors.includes(item.author);
       }
       return true;
+    }).filter((item) => {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setFilteredNews(filtered);
-  }, [selectedAuthors, news]);
+  }, [selectedAuthors, news, searchTerm]);
 
   const handleSearchChange = (value) => {
     setSearchTerm(value);

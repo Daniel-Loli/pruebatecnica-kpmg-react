@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../components/CardList/Card';
 import Header from '../components/ui/Header';
 import Layout from '../components/Layout';
 import Search from '../components/CardList/Search';
-import AuthorFilter from '../components/AuthorFilter'; 
+import AuthorFilter from '../components/AuthorFilter';
 import Footer from '../components/ui/Footer';
-import '../App.css'
+import '../App.css';
 
 const apiKey = '0182acb9bf8749fa9d9d9468cdf8c896';
 
@@ -27,7 +27,7 @@ const Home = () => {
       .then((data) => {
         console.log('Fetched news data:', data);
         setNews(data.articles);
-        setFilteredNews(data.articles); 
+        setFilteredNews(data.articles);
         const uniqueAuthors = [...new Set(data.articles.map(item => item.author))];
         setAuthors(uniqueAuthors.filter(author => author));
       })
@@ -42,9 +42,11 @@ const Home = () => {
         return selectedAuthors.includes(item.author);
       }
       return true;
+    }).filter((item) => {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setFilteredNews(filtered);
-  }, [selectedAuthors, news]);
+  }, [selectedAuthors, news, searchTerm]);
 
   const handleSearchChange = (value) => {
     setSearchTerm(value);

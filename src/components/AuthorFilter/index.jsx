@@ -1,5 +1,5 @@
-// AuthorFilter.jsx
-import React, { useState } from 'react';
+
+import  { useState } from 'react';
 import '../../App.css'
 
 const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
@@ -13,7 +13,7 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
     setSearchTerm(event.target.value);
   };
 
-  // Filtrar autores basado en la búsqueda del usuario
+
   const filteredAuthors = authors.filter(author =>
     author.toLowerCase().includes(searchTerm.toLowerCase())
   );
