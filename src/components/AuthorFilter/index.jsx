@@ -11,20 +11,22 @@ const AuthorFilter = ({ authors, selectedAuthors, onAuthorChange }) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredAuthors = authors.filter(author =>
-    author.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredAuthorsSet = new Set(authors?.filter(author =>
+    author?.toLowerCase().includes(searchTerm.toLowerCase())
+  ));
+
+  const filteredAuthors = [...filteredAuthorsSet];
+
   const handleClickClear = () => {
     setSearchTerm('');
   }
-
 
   return (
     <aside className="bg-gray-300 p-8 ml-4 rounded-md flex flex-col items-center container ">
       <div className="relative mb-4">
         <input
           type="text"
-          placeholder="Filtrar por Autor"
+          placeholder="Filtrar por autor"
           value={searchTerm}
           onChange={handleSearchChange}
           className="border border-gray-500 font-ligth text-black/70 rounded-3xl p-2 py-2  focus:outline-none focus:border-blue-500"

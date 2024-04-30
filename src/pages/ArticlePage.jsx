@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/ui/Header';
+import Footer from '../components/ui/Footer';
 import Layout from '../components/Layout';
+import '../App.css';
 
 const ArticlePage = ({ apiKey }) => {
   const { title } = useParams();
@@ -57,18 +59,18 @@ const ArticlePage = ({ apiKey }) => {
     <Header />
     <div className="container mx-auto mt-8 flex justify-center">
       <div className="w-3/4">
-        <h2 className="text-2xl font-semibold mb-4">{article.title}</h2>
+        <h2 className="text-2xl  text-purple font-semibold mb-4 font-serif">{article.title}</h2>
         <div className="bg-white rounded-lg overflow-hidden shadow-lg">
           <img src={article.urlToImage} alt={article.title} className="w-full h-auto" />
           <div className="p-4">
-            <h3 className="text-xl font-semibold mb-2">{article.title}</h3>
             <p className="text-gray-600 mb-2">{article.author}</p>
-            <p className="text-gray-700">{article.content}</p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 mt-2 block">Read more</a>
+            <p className="text-gray-700 font-sans">{article.content}</p>
+            <a href={article.url} target="_blank" rel="noopener noreferrer font-mono" className="text-blue-500 mt-2 block">Read more</a>
           </div>
         </div>
       </div>
     </div>
+    <Footer/>
     </Layout>
   );
 };
